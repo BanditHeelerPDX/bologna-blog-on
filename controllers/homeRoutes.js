@@ -32,6 +32,26 @@ router.get('/post/:id', authorized, async (req, res) => {
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    model: User,
+                    model: Post,
+                    attributes: ['id', 'title', 'content', 'author', 'created_at'],
+                }
+            ],
+        });
 
+        const post = postData.get({ plain: true });
+        res.render('post', { post, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        res.status(500).json(err);
     }
+}); 
+
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+});
+
+module.exports = router;
