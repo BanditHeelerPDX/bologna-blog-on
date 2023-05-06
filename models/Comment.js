@@ -4,25 +4,25 @@ const sequelize = require("../config/connection");
 class Comment extends Model {}
 
 Comment.init(
-    {
-        content: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        author: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            referencedColumn: 'userName',
-            referencedTable: 'User'
-        },
+  {
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    {
-        sequelize,
-        timestamps: true,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "comment",
-    }
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      referencedColumn: "userName",
+      referencedTable: "User",
+    },
+  },
+  {
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "comment",
+  }
 );
 
 module.exports = Comment;
