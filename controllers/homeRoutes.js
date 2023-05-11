@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const authorized = require('../utils/auth');
+const authorized = require('../utils/authorized');
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
             limit: 10,
             include: [
                 {
-                    model: Post,
-                    attributes: ['id', 'title', 'content', 'created_at],
+                    model: User,
+                    attributes: ['userName'],
                 },
             ],
         });
@@ -32,8 +32,8 @@ router.get('/post/:id', authorized, async (req, res) => {
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    model: Post,
-                    attributes: ['id', 'title', 'content', 'author', 'created_at'],
+                    model: User,
+                    attributes: ['userName'],
                 }
             ],
         });

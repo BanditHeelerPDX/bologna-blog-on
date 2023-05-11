@@ -1,4 +1,4 @@
-const authorized = require("./utils/authorized");
+const authorized = require("../utils/authorized");
 const express = require("express");
 const router = express.Router();
 
