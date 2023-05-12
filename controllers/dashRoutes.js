@@ -6,8 +6,7 @@ router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
             limit: 10,
-            include: [
-                {
+            include: [{
                     model: User,
                     attributes: ['userName'],
                 },
