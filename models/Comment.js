@@ -15,6 +15,12 @@ Comment.init(
       referencedColumn: "userName",
       referencedTable: "User",
     },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      referencedColumn: "id",
+      referencedTable: "Post",
+    },
   },
   {
     sequelize,
