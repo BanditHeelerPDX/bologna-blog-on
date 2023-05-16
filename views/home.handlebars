@@ -1,0 +1,11 @@
+ <div class="post-cards">
+        {{#each posts}}
+          <div class="post-card">
+            <h3>{{this.title}}</h3>
+            <p>{{this.content}}</p>
+            <p>Author: {{this.author}}</p>
+            <button class="edit-btn" data-post-id="{{this.id}}">Edit</button>
+            <button class="delete-btn" data-post-id="{{this.id}}">Delete</button>
+          </div>
+        {{/each}}
+      </div>

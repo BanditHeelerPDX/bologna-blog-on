@@ -9,7 +9,7 @@ const seedPosts = async () => {
 
         for (let i = 0; i < 100; i++) {
             const title = faker.lorem.sentence(3);
-            const content = faker.lorem.paragraph(3);
+            const content = faker.lorem.paragraph(2);
             const author = users[Math.floor(Math.random() * users.length)].userName;
 
             fakePosts.push({
